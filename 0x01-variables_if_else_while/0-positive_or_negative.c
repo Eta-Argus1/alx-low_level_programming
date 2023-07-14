@@ -17,7 +17,7 @@ int main(void)
 	{
 		printf("%d is zero\n", x);
 	}
-	elif(x > 0)
+	else if(x > 0)
 	{
 		printf("%d is positive\n", x);
 	}
