@@ -13,12 +13,15 @@ int main(void)
 	{
 		for (j = 49; j < 58; j++)
 		{
-			putchar(i);
-			putchar(j);
-			if (i != 56 || j != 57)
+			for (i > j)
 			{
-			putchar(',');
-			putchar(' ');
+				putchar(i);
+				putchar(j);
+				if (i != 56 || j != 57)
+				{
+				putchar(',');
+				putchar(' ');
+				}
 			}
 		}
 	}
