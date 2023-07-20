@@ -6,27 +6,18 @@
  */
 int main(void)
 {
-	long int num, counts[20];
-
-	int max, count, i;
+	long int num, count;
 
 	num = 612852475143;
 
-	i = 0;
-
-	max = 0;
-
 	for (count = 2; num > 1; count++)
 	{
-		while (num % count == 0)
+		if (num % count == 0)
 		{
 			num /= count;
+			count--;
 		}
-		counts[i] = count;
-		if (counts[i] > max)
-			max = counts[i];
-		i++;
 	}
-	printf("%d", max);
+	printf("%ld\n", count);
 	return (0);
 }
