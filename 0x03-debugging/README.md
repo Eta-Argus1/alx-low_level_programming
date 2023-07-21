@@ -1,1 +1,1 @@
-Readme file of debugging project
+README file of the current project
