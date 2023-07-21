@@ -1,1 +1,1 @@
-README file of the current project
+README file for this project
