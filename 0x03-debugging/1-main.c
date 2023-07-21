@@ -13,5 +13,6 @@ i = 0;
 /*putchar(i);*/
 /*}*/
 printf("Infinite loop avoided! \\o/\n");
-retur
+return (0);
+}
 
