@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int i, x;
-	int change[5] = {25, 10, 5, 2, 1};
+	int change[] = {25, 10, 5, 2, 1};
 
 	int result = 0;
 
