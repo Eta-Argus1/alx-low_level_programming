@@ -9,14 +9,12 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, result;
+	int i, x, result;
 
 	result = 0;
 
 	for (i = 1; i < argc; i++)
 	{
-		int x;
-
 		if (*argv[i] < '0' || *argv[i] > '9')
 		{
 			printf("Error\n");
