@@ -12,19 +12,18 @@ int main(int argc, char *argv[])
 	int i, x, result;
 
 	result = 0;
+	i = 1;
 
-	for (i = 1; i < argc; i++)
+	while (i < argc)
 	{
 		if (*argv[i] < '0' || *argv[i] > '9')
 		{
 			printf("Error\n");
 			return (1);
 		}
-		else
-		{
-			x = atoi(argv[i]);
-			result += x;
-		}
+		x = atoi(argv[i]);
+		result += x;
+		i++;
 	}
 	printf("%d\n", result);
 
