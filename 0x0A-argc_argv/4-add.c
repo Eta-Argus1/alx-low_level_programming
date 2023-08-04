@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
 			return (1);
 		}
 		x = strtol(argv[i], NULL, 10);
-
 		result += x;
 	}
 	printf("%d\n", result);
