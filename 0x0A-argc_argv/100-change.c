@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 	if (x < 0)
 	{
 		printf("0\n");
+		return (0);
 	}
 	for (i = 0; i < 5; i++)
 	{
