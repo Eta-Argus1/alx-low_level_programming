@@ -40,8 +40,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 
 	stringcpy(dog->name, name);
-	dog->age = age;
 	stringcpy(dog->owner, owner);
+	dog->age = age;
 
 	return (dog);
 }
@@ -71,9 +71,10 @@ int stringlength(char *s)
 
 char *stringcpy(char *s1, char *s2)
 {
-	int i, j;
+	int i, j = 0;
 
-	j = stringlength(s2);
+	while (s2[j] != '\0')
+		j++;
 
 	for (i = 0; i < j; i++)
 		s1[i] = s2[i];
