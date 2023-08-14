@@ -1,4 +1,6 @@
 #include "dog.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 int stringlength(char *s);
 char *stringcpy(char *s1, char *s2);
@@ -12,7 +14,7 @@ char *stringcpy(char *s1, char *s2);
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	dog_t *dog;
 	int l1, l2;
 
 	l1 = stringlength(name);
@@ -37,11 +39,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	stringcpy(new_dog->name = *name);
-	new_dog->age = age;
-	stringcpy(new_dog->owner = *owner);
+	stringcpy(dog->name, name);
+	dog->age = age;
+	stringcpy(dog->owner, owner);
 
-	return (new_dog);
+	return (dog);
 }
 
 /**
