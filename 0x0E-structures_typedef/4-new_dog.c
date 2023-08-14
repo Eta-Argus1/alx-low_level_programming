@@ -2,8 +2,42 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int stringlength(char *s);
-char *stringcpy(char *s1, char *s2);
+/**
+ * stringlength - calculate string length
+ * @s: the string
+ * Return: the string length
+ */
+
+int stringlength(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+/**
+ * stringcpy - copies a string from s2 to s1
+ * @s1: destination string
+ * @s2: source string
+ * Return: copied string
+ */
+
+char *stringcpy(char *s1, char *s2)
+{
+	int i, j = 0;
+
+	while (s2[j] != '\0')
+		j++;
+
+	for (i = 0; i < j; i++)
+		s1[i] = s2[i];
+	s1[i] = '\0';
+
+	return (s1);
+}
+
 /**
  * new_dog - function that create a new dog
  * @name: dog's name
@@ -44,41 +78,4 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog->age = age;
 
 	return (dog);
-}
-
-/**
- * stringlength - calculate string length
- * @s: the string
- * Return: the string length
- */
-
-int stringlength(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-		i++;
-
-	return (i);
-}
-
-/**
- * stringcpy - copies a string from s2 to s1
- * @s1: destination string
- * @s2: source string
- * Return: copied string
- */
-
-char *stringcpy(char *s1, char *s2)
-{
-	int i, j = 0;
-
-	while (s2[j] != '\0')
-		j++;
-
-	for (i = 0; i < j; i++)
-		s1[i] = s2[i];
-	s1[i] = '\0';
-
-	return (s1);
 }
