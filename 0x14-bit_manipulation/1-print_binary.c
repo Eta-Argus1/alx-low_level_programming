@@ -9,19 +9,21 @@
 
 void print_binary(unsigned long int n)
 {
-	unsigned long int bin[64];
+	unsigned long int bin;
 	int i = 0, j;
 
-	if (n == 0)
-		_putchar('0');
-
-	while (n > 0)
+	for (j = 63; j >= 0; j--)
 	{
-		bin[i] = n & 1;
-		n >>= 1;
-		i++;
-	}
+		bin = n >> j;
 
-	for (j = i - 1; j >= 0; j--)
-		_putchar('0' + bin[j]);
+		if (bin & 1)
+		{
+			_putchar('1');
+			i++;
+		}
+		else if (i)
+			_putchar('0');
+	}
+	if(!i)
+		_putchar('0');
 }
