@@ -13,7 +13,7 @@ void print_binary(unsigned long int n)
 	int i = 0, j;
 
 	if (n == 0)
-		printf("0");
+		_putchar('0');
 
 	while (n > 0)
 	{
@@ -23,5 +23,5 @@ void print_binary(unsigned long int n)
 	}
 
 	for (j = i - 1; j >= 0; j--)
-		printf("%d", bin[j]);
+		_putchar('0' + bin[j]);
 }
