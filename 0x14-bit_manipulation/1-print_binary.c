@@ -9,7 +9,7 @@
 
 void print_binary(unsigned long int n)
 {
-	int bin[64];
+	unsigned long int bin[64];
 	int i = 0, j;
 
 	if (n == 0)
