@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	ch = create_buffer(argv[2]);
+	ch = alloc_mem(argv[2]);
 	i = open(argv[1], O_RDONLY);
 	rd = read(i, ch, 1024);
 	j = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -90,8 +90,8 @@ int main(int argc, char *argv[])
 	} while (rd > 0);
 
 	free(ch);
-	close_file(i);
-	close_file(j);
+	close_filename(i);
+	close_filename(j);
 
 	return (0);
 }
