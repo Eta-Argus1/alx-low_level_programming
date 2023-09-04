@@ -17,7 +17,7 @@ char *alloc_mem(char *filename)
 
 	if (ch == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 
@@ -52,46 +52,46 @@ void close_filename(int file)
 
 int main(int argc, char *argv[])
 {
-	int from, to, r, w;
-	char *buffer;
+	int i, j, rd, wr;
+	char *ch;
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_i file_to\n");
 		exit(97);
 	}
 
-	buffer = create_buffer(argv[2]);
-	from = open(argv[1], O_RDONLY);
-	r = read(from, buffer, 1024);
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	ch = create_buffer(argv[2]);
+	i = open(argv[1], O_RDONLY);
+	rd = read(i, ch, 1024);
+	j = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (from == -1 || r == -1)
+		if (i == -1 || rd == -1)
 		{
 			dprintf(STDERR_FILENO,
-				"Error: Can't read from file %s\n", argv[1]);
-			free(buffer);
+				"Error: Can't read i file %s\n", argv[1]);
+			free(ch);
 			exit(98);
 		}
 
-		w = write(to, buffer, r);
-		if (to == -1 || w == -1)
+		wr = write(j, ch, rd);
+		if (j == -1 || wr == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
-			free(buffer);
+			free(ch);
 			exit(99);
 		}
 
-		r = read(from, buffer, 1024);
-		to = open(argv[2], O_WRONLY | O_APPEND);
+		rd = read(i, ch, 1024);
+		j = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (r > 0);
+	} while (rd > 0);
 
-	free(buffer);
-	close_file(from);
-	close_file(to);
+	free(ch);
+	close_file(i);
+	close_file(j);
 
 	return (0);
 }
