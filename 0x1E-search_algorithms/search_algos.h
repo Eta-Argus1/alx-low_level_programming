@@ -1,3 +1,4 @@
+#include <stddef.h>
 #ifndef search_algos_h
 #define search_algos_h
 
